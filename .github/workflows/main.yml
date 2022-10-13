@@ -1,17 +1,18 @@
-name: merge release branch to master
+name: Merge release branch to main
 on:
   push:
     branches:
       - 'release/*'
-      
+
 jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Merge to master
+      - uses: actions/checkout@main
+      - name: Merge to main
         uses: devmasx/merge-branch@v1.1.0
         with:
           type: now
           target_branch: 'main'
-          github_token: ${{ github.token }}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
