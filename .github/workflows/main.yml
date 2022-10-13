@@ -1,3 +1,4 @@
+name: Merge release branch to master
 on:
   pull_request:
     branches:
@@ -10,5 +11,11 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo The PR was merged
+      - uses: actions/checkout@main
+      - name: Merge to master
+        uses: devmasx/merge-branch@v1.1.0
+        with:
+          type: now
+          target_branch: 'main'
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
