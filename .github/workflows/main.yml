@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'release/*'
+      - 'kev/*'
 
 jobs:
   automerge:
@@ -14,5 +15,4 @@ jobs:
         with:
           type: now
           target_branch: 'main'
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
