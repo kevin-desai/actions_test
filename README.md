@@ -1,3 +1,2 @@
 # actions_test
-This is from release/1.0
-second test
+This is from kev/test2
